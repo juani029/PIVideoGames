@@ -20,7 +20,7 @@ module.exports = (sequelize) => {
       type: DataTypes.TEXT,
       allowNull: false
     },
-    date: {
+    released: {
       type: DataTypes.STRING,
     },
     rating: {
@@ -32,6 +32,11 @@ module.exports = (sequelize) => {
     },
     background_image: {
       type: DataTypes.STRING(1234),
+    },
+    createdInDb:{
+      type: DataTypes.BOOLEAN,
+      allowNull: false,
+      defaultValue: true
     }
   }, {
     timestamps: false,

@@ -1,5 +1,11 @@
 .App {
   text-align: center;
+  background-image: url(https://images4.alphacoders.com/653/thumb-1920-653563.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
+  color: white
 }
 
 .App-logo {

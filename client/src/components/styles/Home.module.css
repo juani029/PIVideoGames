@@ -1,0 +1,13 @@
+.div{
+    justify-content: space-around;
+    display: flex;
+    padding-top: 20px;
+    background-size: cover;
+}
+
+.cardDiv{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    width: 100%;
+}

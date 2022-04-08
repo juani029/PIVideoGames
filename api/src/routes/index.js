@@ -16,19 +16,20 @@ const getApiInfo = async () => {
         let results = [];
         const queries = [];
         const pages = [1,2,3,4,5];
+        
         pages.forEach((page) => {
             queries.push(axios.get(`https://api.rawg.io/api/games?key=${API_KEY}&page=${page}`));
         });
         await Promise.all(queries) 
             .then((queryResults) => {
-                queryResults.forEach((queryResult) => { 
+                queryResults.forEach((queryResult) => {
                     let response = queryResult.data
                     results.push(
                         ...response.results.map((e) => ({
                             id: e.id,
                             name: e.name,
                             background_image: e.background_image,
-                            genres: e.genres.map((g) => `${g.name}`),
+                            genres: e.genres.map((g) => g),
                             rating: e.rating,
                             platforms: e.platforms.map((p) => `${p.platform.name}`)
                         }))
@@ -105,11 +106,41 @@ router.get('/videogame/:idVideogame', async (req,res) => {
     const id =  req.params.idVideogame;
     try {
         allVideogames = await callAllVideogames();
-        if(id){
+        if(id.length > 20){
             let gameId = await allVideogames.filter(g=> g.id == id);// filtro por id mis juegos de la db y los 100 juegos de la api 
             gameId.length?
             res.status(200).json(gameId) : // si lo encuentra lo envia
-            res.status(404).send('Videogame Not Found') // sino envia un mensaje de error
+            res.status(404).send('Videogame not found') // sino envia un mensaje de error
+        }else{
+            const videogame = await axios.get(`https://api.rawg.io/api/games/${id}?key=${API_KEY}`);
+        if (videogame === undefined) {
+            res.status(404).send("Videogame not found");
+        } else {
+                const {
+                    id,
+                    name,
+                    background_image,
+                    description_raw,
+                    released,
+                    rating,
+                    platforms,
+                    genres
+                } = videogame.data;
+
+                let game = [];
+
+                game.push({
+                    id,
+                    name,
+                    background_image,
+                    description: description_raw,
+                    released,
+                    rating,
+                    platforms: platforms.map((p) => ` ${p.platform.name} `),
+                    genres: genres.map((g) => g.name)
+                });
+                res.status(200).json(game);
+            }
         }
     } catch (error) {
         console.log(error);
@@ -118,14 +149,14 @@ router.get('/videogame/:idVideogame', async (req,res) => {
 
 router.post('/videogame', async (req,res) => {
     try {
-        const { name, background_image, description, date, rating, platforms, genres } = req.body;
+        const { name, background_image, description, released, rating, platforms, genres } = req.body;
         const newVideogame = await Videogame.create({
             name,
             background_image,
             description,
             platforms,
             rating,
-            date
+            released
         });
         const genreDb = await Genre.findAll({
             where:{ name: genres}
