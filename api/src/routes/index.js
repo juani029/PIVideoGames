@@ -106,8 +106,8 @@ router.get('/videogame/:idVideogame', async (req,res) => {
     const id =  req.params.idVideogame;
     try {
         allVideogames = await callAllVideogames();
-        if(id.length > 20){
-            let gameId = await allVideogames.filter(g=> g.id == id);// filtro por id mis juegos de la db y los 100 juegos de la api 
+        if(id.length > 20){ // esto es porque los id de los games de la db pasan los 20 digitos
+            let gameId = await allVideogames.filter(g=> g.id == id);// filtro por id mis juegos de la db 
             gameId.length?
             res.status(200).json(gameId) : // si lo encuentra lo envia
             res.status(404).send('Videogame not found') // sino envia un mensaje de error

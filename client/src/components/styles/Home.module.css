@@ -1,13 +1,96 @@
 .div{
-    justify-content: space-around;
     display: flex;
     padding-top: 20px;
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),url(https://images5.alphacoders.com/593/thumb-1920-593333.jpg) no-repeat;
+    background-attachment: fixed;
     background-size: cover;
+    position: relative;
 }
 
 .cardDiv{
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-evenly;
-    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    grid-column-gap: 9px;
+    grid-row-gap: 11px;    
 }
+
+.filters{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border: 2px solid rgba(229, 66, 10, 0.75);
+    background-image: linear-gradient(to top, #30d0d086 0%, #33086767 100%);
+    font-weight: bold;
+    letter-spacing: 0.8px;
+    width: 80%;
+    position: relative;
+    left: 10%;
+}
+
+.contFilter{
+    display: flex;
+    flex-direction: column;
+    margin: 20px;
+    border: 2px solid rgba(229, 66, 10, 0.75);
+    border-radius: 10px;
+    width: 250px;
+    align-items: center;
+}
+
+.contFilter select{
+    margin-bottom: 5px;
+    width: 150px;
+    color: #330867a9;
+    cursor: pointer;
+    height: 35px;
+    text-align:center;
+    border: none;
+    background-size: 300% 100%;
+    border-radius: 35px;
+    -o-transition: all .4s ease-in-out;
+    -webkit-transition: all .4s ease-in-out;
+    transition: all .4s ease-in-out;
+    background-image: linear-gradient(to right, #f5ce62, #e43603, #fa7199, #e85a19);
+    box-shadow: 0 4px 15px 0 rgba(229, 66, 10, 0.75);
+    appearance: none;
+    font-family: 'Raleway',sans-serif;
+    font-size: 1rem;
+}
+
+.contFilter select:focus{
+    outline: none;
+}
+
+.contFilter select:hover{
+    background-position: 100% 0;
+    -o-transition: all .4s ease-in-out;
+    -webkit-transition: all .4s ease-in-out;
+    transition: all .4s ease-in-out;
+}
+
+.contFilter select:active{
+    box-shadow: #D6D6E7 0 3px 7px inset;
+    transform: translateY(2px);
+}
+
+
+.contFilter p{
+    margin-top: -3px;
+    margin-bottom: 5px;
+    width: 60%;
+    color: rgb(255, 136, 0);
+}
+
+.link{
+    background-color: rgba(0, 0, 0, 0.419);
+    display: block;
+    text-decoration:none;
+    width: 100%;
+    padding-top: 2ex;
+}
+
+.link:hover{
+    background-color: aqua;
+}
+

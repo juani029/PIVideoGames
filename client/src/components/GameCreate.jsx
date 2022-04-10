@@ -209,6 +209,7 @@ export default function GameCreate() {
             key="plat"
             onChange={(e) => handleSelectP(e)}
           >
+            {/* <option value={""}>Escoja una:</option> */}
             {platforms?.map((p) => (
               <option value={p} key={p}>
                 {p}

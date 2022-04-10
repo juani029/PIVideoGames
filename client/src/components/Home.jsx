@@ -44,10 +44,10 @@ export default function Home() {
     dispatch(getGenres());
   }, [dispatch]);
 
-  const handleClick = (e) => {
-    e.preventDefault();
-    dispatch(getGames());
-  };
+  // const handleClick = (e) => {
+  //   e.preventDefault();
+  //   dispatch(getGames());
+  // };
 
   const handleFilterGenre = (e) => {
     e.preventDefault();
@@ -65,6 +65,7 @@ export default function Home() {
     e.preventDefault();
     dispatch(alphabeticalOrder(e.target.value));
     setCurrentPage(1);
+    // setOrden("")
   };
 
   const handleSortRating = (e) => {
@@ -75,45 +76,49 @@ export default function Home() {
 
   return (
     <div>
-      <Link to="/created">Crear videogame</Link>
+      <Link to="/created" className={style.link}>
+        Crear videogame
+      </Link>
       <div className={style.div}>
-        {/* <div className='style.filters'> */}
-        {/* <div> */}
         <div>
-          <p>Order by Genre</p>
-          <select onChange={handleFilterGenre} key="genre">
-            <option value="All">All</option>
-            {allGenres &&
-              allGenres.map((genre) => (
-                <option value={genre.name} key={genre.id}>
-                  {genre.name}
-                </option>
-              ))}
-          </select>
-          <p>Alphabetic Order</p>
-          <select onChange={handleSortAlphabetical} key="Alpha">
-            <option value="alpha">All</option>
-            <option value="a-z">A-Z</option>
-            <option value="z-a">Z-A</option>
-          </select>
-          {/* </div> */}
-          {/* <div> */}
-          <p>Order by Rating</p>
-          <select onChange={handleSortRating} key="Rating">
-            <option value="rating">All</option>
-            <option value="top">Top</option>
-            <option value="btt">Bottom</option>
-          </select>
-          {/* </div> */}
-          {/* <div> */}
-          <p>Order by Created</p>
-          <select onChange={handleFilterCreated} key="Created">
-            <option value="all">All</option>
-            <option value="created">Created</option>
-            <option value="existing">Existing</option>
-          </select>
-          {/* </div> */}
-          {/* </div> */}
+          <div className={style.filters}>
+            <div className={style.contFilter}>
+              <p>Order by Genre</p>
+              <select onChange={handleFilterGenre} key="genre">
+                <option value="All">All</option>
+                {allGenres &&
+                  allGenres.map((genre) => (
+                    <option value={genre.name} key={genre.id}>
+                      {genre.name}
+                    </option>
+                  ))}
+              </select>
+            </div>
+            <div className={style.contFilter}>
+              <p>Alphabetic Order</p>
+              <select onChange={handleSortAlphabetical} key="Alpha">
+                <option value="alpha">All</option>
+                <option value="a-z">A-Z</option>
+                <option value="z-a">Z-A</option>
+              </select>
+            </div>
+            <div className={style.contFilter}>
+              <p>Order by Rating</p>
+              <select onChange={handleSortRating} key="Rating">
+                <option value="rating">All</option>
+                <option value="top">Top</option>
+                <option value="btt">Bottom</option>
+              </select>
+            </div>
+            <div className={style.contFilter}>
+              <p>Order by Created</p>
+              <select onChange={handleFilterCreated} key="Created">
+                <option value="all">All</option>
+                <option value="created">Created</option>
+                <option value="existing">Existing</option>
+              </select>
+            </div>
+          </div>
           {/* {currentVideogames.length > 0 ?  */}
           {/* (<div>  */}
           <Paginado
