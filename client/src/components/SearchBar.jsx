@@ -2,6 +2,8 @@ import React from "react";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { getGamesByNames } from "../actions";
+import buscar from "./styles/img/search 4.png";
+import style from "./styles/SearchBar.module.css";
 
 export default function SearchBar() {
   const dispatch = useDispatch();
@@ -20,15 +22,16 @@ export default function SearchBar() {
   };
 
   return (
-    <div>
+    <div className={style.search}>
       <input
         type="text"
-        placeholder="Name:"
+        placeholder="Name Of Videogame"
         value={name}
         onChange={handleInputChange}
+        className={style.input}
       />
-      <button type="submit" onClick={handleSubmit}>
-        Search
+      <button className={style.img} type="submit" onClick={handleSubmit}>
+        <img src={buscar} alt="Image not found" />
       </button>
     </div>
   );

@@ -1,3 +1,7 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Rubik+Glitch&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Averia+Gruesa+Libre&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Tourney:wght@700&display=swap');
+
 .card {
     display: flex;
     flex-direction: column;
@@ -19,12 +23,13 @@
     transform: translateY(-3%);
 }
 
-img{
+.card img{
     width:90%;
     height:50%;
     padding: 5px;
     border: 2px solid rgba(229, 66, 10, 0.75);
     border-radius: 1ex;
+    background: none;
 }
 .img:hover{
     box-shadow: 0 4px 8px 0 rgba(229, 66, 10, 0.75), 0 6px 20px 0 rgba(229, 66, 10, 0.75);
@@ -33,12 +38,15 @@ img{
 .name{
     width: 70%;
     margin: 10px 0;
+    font-family: 'Press Start 2P', cursive;
+    font-size: 12px;
 }
 .card p{
     margin-bottom: 5px;
     width: 60%;
     color: rgb(255, 136, 0);
     text-transform: uppercase;
+    font-family: 'Tourney', cursive;
 }
 
 .hr{
@@ -63,6 +71,7 @@ img{
     color: rgb(255, 136, 0);
     cursor: pointer;
     border-radius: 1ex;
+    font-family: 'Averia Gruesa Libre', cursive;
 }
 
 .btn:hover{

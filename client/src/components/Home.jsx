@@ -13,6 +13,7 @@ import { Link } from "react-router-dom";
 import Card from "./Card";
 import Paginado from "./Paginado";
 import SearchBar from "./SearchBar";
+import NavBar from "./NavBar";
 import style from "./styles/Home.module.css";
 
 export default function Home() {
@@ -76,9 +77,9 @@ export default function Home() {
 
   return (
     <div>
-      <Link to="/created" className={style.link}>
+      {/* <Link to="/created" className={style.link}>
         Crear videogame
-      </Link>
+      </Link> */}
       <div className={style.div}>
         <div>
           <div className={style.filters}>
@@ -121,13 +122,6 @@ export default function Home() {
           </div>
           {/* {currentVideogames.length > 0 ?  */}
           {/* (<div>  */}
-          <Paginado
-            videogamesPerPage={videogamesPerPage}
-            allVideogames={allVideogames.length}
-            paginado={paginado}
-            key="Paginado"
-          />
-          <SearchBar />
           <div className={style.cardDiv}>
             {currentVideogames?.map((g) => {
               return (
@@ -143,6 +137,12 @@ export default function Home() {
               );
             })}
           </div>
+          <Paginado
+            videogamesPerPage={videogamesPerPage}
+            allVideogames={allVideogames.length}
+            paginado={paginado}
+            key="Paginado"
+          />
         </div>
         {/* ): null} */}
       </div>

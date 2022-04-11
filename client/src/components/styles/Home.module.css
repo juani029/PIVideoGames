@@ -1,3 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Rubik+Glitch&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Averia+Gruesa+Libre&display=swap');
+
 .div{
     display: flex;
     padding-top: 20px;
@@ -21,11 +24,10 @@
     justify-content: space-between;
     border: 2px solid rgba(229, 66, 10, 0.75);
     background-image: linear-gradient(to top, #30d0d086 0%, #33086767 100%);
-    font-weight: bold;
     letter-spacing: 0.8px;
-    width: 80%;
-    position: relative;
-    left: 10%;
+    width: 1800px;
+    font-family: 'Press Start 2P', cursive;
+    margin-left: 50px;
 }
 
 .contFilter{
@@ -38,24 +40,24 @@
     align-items: center;
 }
 
-.contFilter select{
+.contFilter select {
     margin-bottom: 5px;
     width: 150px;
-    color: #330867a9;
+    color: rgb(0, 0, 0);
     cursor: pointer;
     height: 35px;
     text-align:center;
-    border: none;
-    background-size: 300% 100%;
+    border: 0;
     border-radius: 35px;
-    -o-transition: all .4s ease-in-out;
-    -webkit-transition: all .4s ease-in-out;
-    transition: all .4s ease-in-out;
-    background-image: linear-gradient(to right, #f5ce62, #e43603, #fa7199, #e85a19);
-    box-shadow: 0 4px 15px 0 rgba(229, 66, 10, 0.75);
     appearance: none;
     font-family: 'Raleway',sans-serif;
     font-size: 1rem;
+    background-size: 300% 100%;
+    -o-transition: all .4s ease-in-out;
+    -webkit-transition: all .4s ease-in-out;
+    transition: all .4s ease-in-out;
+    background-image: linear-gradient(to right, #f5ce62, #e43603, #fa7199, #e85a19); 
+    font-family: 'Averia Gruesa Libre', cursive;
 }
 
 .contFilter select:focus{
@@ -67,6 +69,7 @@
     -o-transition: all .4s ease-in-out;
     -webkit-transition: all .4s ease-in-out;
     transition: all .4s ease-in-out;
+    box-shadow: 0 4px 15px 0 rgba(229, 66, 10, 0.75)
 }
 
 .contFilter select:active{
@@ -74,23 +77,19 @@
     transform: translateY(2px);
 }
 
-
+.contFilter select *{
+    background-color: #e437037f;
+    padding: 30px;
+    color: red;
+    font-family: 'Averia Gruesa Libre', cursive;
+}
+ 
 .contFilter p{
-    margin-top: -3px;
     margin-bottom: 5px;
     width: 60%;
     color: rgb(255, 136, 0);
 }
 
-.link{
-    background-color: rgba(0, 0, 0, 0.419);
-    display: block;
-    text-decoration:none;
-    width: 100%;
-    padding-top: 2ex;
-}
 
-.link:hover{
-    background-color: aqua;
-}
+
 
