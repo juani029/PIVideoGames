@@ -9,11 +9,8 @@ import {
   alphabeticalOrder,
   ratingOrder,
 } from "../actions";
-import { Link } from "react-router-dom";
 import Card from "./Card";
 import Paginado from "./Paginado";
-import SearchBar from "./SearchBar";
-import NavBar from "./NavBar";
 import style from "./styles/Home.module.css";
 
 export default function Home() {

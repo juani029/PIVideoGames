@@ -31,7 +31,7 @@ export default function SearchBar() {
         className={style.input}
       />
       <button className={style.img} type="submit" onClick={handleSubmit}>
-        <img src={buscar} alt="Image not found" />
+        <img src={buscar} alt="#" />
       </button>
     </div>
   );

@@ -2,7 +2,7 @@ import React from "react";
 import SearchBar from "./SearchBar";
 import style from "./styles/NavBar.module.css";
 import { Link } from "react-router-dom";
-import logo from "./styles/img/logo.png";
+import logo from "./styles/img/logo 3.png";
 import home from "./styles/img/home.png";
 import videogame from "./styles/img/videogame.png";
 

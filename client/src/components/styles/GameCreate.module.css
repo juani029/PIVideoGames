@@ -1,0 +1,251 @@
+@import url('https://fonts.googleapis.com/css2?family=Tourney:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Pompiere&display=swap');
+.div{
+    display: flex;
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),url(https://images5.alphacoders.com/593/thumb-1920-593333.jpg) no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    /* z-index: 2; */
+}
+
+.form{
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 0.6fr 0.5fr;
+    grid-column-gap: 0px;
+    grid-row-gap: 0px;
+    width: 1000px;
+    border: 2px solid rgba(229, 66, 10, 0.75);
+    background-image: linear-gradient(to top, #537895b8 0%, #09203fb5 0%);
+    border-radius: 1ex;
+    color: rgb(255, 136, 0);
+    box-shadow: 0 4px 8px 0 rgba(229, 66, 10, 0.75), 0 6px 20px 0 rgba(229, 66, 10, 0.75);
+    padding: 5px;
+    margin: 20px;
+    height: 680px;
+    overflow: auto;
+    margin-bottom: 31px;
+}
+
+.formGrid{
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(6, 1fr);
+    grid-column-gap: 0px;
+    grid-row-gap: 0px; 
+    height: 500px;
+    margin-top: -40px;
+}
+
+.form h1{
+    font-family: 'Press Start 2P', cursive;
+}
+
+.box1{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.box1 div{
+    display: flex;
+    flex-direction: column;
+    margin: 0px 10px;
+    border: 2px solid rgba(229, 66, 10, 0.75);
+    padding: 5px;
+    border-radius: 1ex;
+}
+
+.box2{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.box2 label{
+    margin: 10px;
+    font-family: 'Tourney', cursive;
+}
+
+.box2 small{
+    margin: 10px;
+}
+
+.box3{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+.box3 div{
+    display: flex;
+    flex-direction: column;
+    margin: 0px 10px;
+    align-items: center;
+    border: 2px solid rgba(229, 66, 10, 0.75);
+    padding: 5px;
+    border-radius: 1ex;
+}
+
+.box4{
+    display: flex;
+    justify-content: center;   
+    align-items: center; 
+    flex-direction: column;
+    border: 2px solid rgba(229, 66, 10, 0.75);
+    margin-top: 10px;
+    padding: 10px;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 1ex;
+}
+
+.box4 label{
+    margin: 5px;
+}
+
+.plat{
+    display: flex;
+    margin: 10px;
+}
+
+.plat small{
+    margin: 0 5px;
+}
+
+.plat p{
+    margin: 0 10px;
+}
+
+.plat button{
+    margin: 0 10px;
+    cursor: pointer;
+    background: none;
+    border: none;
+}
+
+.plat img{
+    height: 30px
+}
+
+.box5{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    border: 2px solid rgba(229, 66, 10, 0.75);
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding: 10px;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 1ex;
+}
+
+.gen{
+    display: flex;
+    margin: 10px;
+}
+
+.gen small{
+    margin: 0 5px;
+}
+
+.gen p{
+    margin: 0 10px;
+}
+
+.gen button{
+    cursor: pointer;
+    background: none;
+    border: none;
+}
+
+.gen img {
+    height: 20px;
+}
+
+.label{
+    font-family: 'Tourney', cursive;
+}
+
+.small{
+    color: rgba(255, 0, 0);
+    font-size: 20px;
+    font-family: 'Pompiere', cursive;
+    font-weight: bold;
+}
+
+.btn{
+    margin-top: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.form input{
+    outline: none;
+    border: 0;
+    border: 2px solid rgba(229, 66, 10, 0.75);
+    border-radius: 3px;
+    background: none;
+    color: rgb(255, 136, 0);
+}
+
+.form textarea{
+    outline: none;
+    border: 0;
+    border: 2px solid rgba(229, 66, 10, 0.75);
+    border-radius: 3px;
+    background: none;
+    color: rgb(255, 136, 0);
+}
+
+.btn button{
+    font-size: 10px;
+    font-weight: 600;
+    color: #330867c5;
+    cursor: pointer;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100px;
+    height: 30px;
+    text-align:center;
+    border: none;
+    background-size: 300% 100%;
+    border-radius: 50px;
+    -o-transition: all .4s ease-in-out;
+    -webkit-transition: all .4s ease-in-out;
+    transition: all .4s ease-in-out;
+    background-image: linear-gradient(to right, #f5ce62, #e43603, #fa7199, #e85a19);
+    box-shadow: 0 4px 15px 0 rgba(229, 66, 10, 0.75);
+    letter-spacing: 0.8px;
+    font-family: 'Press Start 2P', cursive; 
+    margin-top: 20px;
+    margin-bottom: 7px;
+}
+
+.btn button:focus {
+  outline: none;
+}
+
+.btn button:hover {
+    background-position: 100% 0;
+    -o-transition: all .4s ease-in-out;
+    -webkit-transition: all .4s ease-in-out;
+    transition: all .4s ease-in-out;
+}
+
+.btn button:active {
+  box-shadow: #D6D6E7 0 3px 7px inset;
+  transform: translateY(2px);
+}
+
+.btn button:disabled{
+    cursor: not-allowed;
+}
