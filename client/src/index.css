@@ -4,7 +4,10 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  margin: 0;
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),url(https://images5.alphacoders.com/593/thumb-1920-593333.jpg) no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  position: relative;
 } 
 
 code {

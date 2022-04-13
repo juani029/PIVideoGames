@@ -123,14 +123,16 @@
 }
 
 .plat button{
-    margin: 0 10px;
     cursor: pointer;
     background: none;
     border: none;
+    position: relative;
 }
 
 .plat img{
-    height: 30px
+    height: 20px;
+    position: absolute;
+    top: -13px;
 }
 
 .box5{
@@ -164,10 +166,13 @@
     cursor: pointer;
     background: none;
     border: none;
+    position: relative;
 }
 
 .gen img {
     height: 20px;
+    position: absolute;
+    top: -13px;
 }
 
 .label{

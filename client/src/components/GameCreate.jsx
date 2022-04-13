@@ -63,7 +63,6 @@ export default function GameCreate() {
   }, [input]);
   function handleSubmit(e) {
     e.preventDefault();
-    console.log(input);
     dispatch(addNewGame(input));
     alert("Personaje creado!!");
     setInput({
@@ -210,6 +209,7 @@ export default function GameCreate() {
                 key="plat"
                 onChange={(e) => handleSelectP(e)}
               >
+                <option hidden>Platforms</option>
                 {platforms?.map((p) => (
                   <option value={p} key={p}>
                     {p}
@@ -224,12 +224,13 @@ export default function GameCreate() {
                 input.platforms.map((e) => (
                   <p key={e}>
                     {e}
-                    <button onClick={() => handleDeleteP(e)}>X</button>
+                    <button onClick={() => handleDeleteP(e)}>
+                      <img src={btn} alt="#" />
+                    </button>
                   </p>
                 ))
               )}
             </div>
-            {/* {errors.platforms && <p>{errors.platforms}</p>} */}
           </div>
           <div className={style.box5}>
             <label className={style.label}>Genres</label>
@@ -239,6 +240,7 @@ export default function GameCreate() {
                 key="gen"
                 onChange={(e) => handleSelectG(e)}
               >
+                <option hidden>Genres</option>
                 {genres.map((g) => (
                   <option value={g.name} key={g.name}>
                     {g.name}
@@ -278,6 +280,7 @@ export default function GameCreate() {
         </form>
         <div className={style.btn}>
           <button
+            onClick={handleSubmit}
             disabled={
               input.platforms.length < 1 ||
               input.platforms.length > 5 ||

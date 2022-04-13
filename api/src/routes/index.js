@@ -12,7 +12,7 @@ const {API_KEY} = process.env;
 const getApiInfo = async () => {
     try {
         //Creo un array vacio donde estaran los juegos. Hago una variable page que sera la que traera los 15 juegos por pagina de la api
-        //Por eso hago un while hasta el 5. Asi me traigo solo 100 juegos y no todos los que ofrece la api
+        //Por eso hago un for hasta el 5. Asi me traigo solo 100 juegos y no todos los que ofrece la api
         let results = [];
         const queries = [];
         const pages = [1,2,3,4,5];
@@ -190,16 +190,16 @@ router.get('/platforms', async(req,res) =>{
     }
 })
 
-router.get('/createGenre', async (req,res) =>{
-    const {name} = req.body;
-    try {
-        const newGenre = await Genre.findOrCreate({
-            where: {name: name}
-        })
-        res.status(201).json(newGenre);
-    } catch (error) {
-        console.log(error)
-    }
-})
+// router.get('/createGenre', async (req,res) =>{
+//     const {name} = req.body;
+//     try {
+//         const newGenre = await Genre.findOrCreate({
+//             where: {name: name}
+//         })
+//         res.status(201).json(newGenre);
+//     } catch (error) {
+//         console.log(error)
+//     }
+// })
 
 module.exports = router;

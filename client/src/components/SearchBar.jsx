@@ -29,6 +29,7 @@ export default function SearchBar() {
         value={name}
         onChange={handleInputChange}
         className={style.input}
+        onKeyPress={(e) => e.key === "Enter" && handleSubmit(e)}
       />
       <button className={style.img} type="submit" onClick={handleSubmit}>
         <img src={buscar} alt="#" />
