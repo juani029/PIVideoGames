@@ -12,7 +12,7 @@ export const GET_DETAIL= "GET_DETAIL"
 export function getGames() {
   return async function (dispatch) {
     try {
-      var json = await axios("http://localhost:3002/videogames");
+      var json = await axios("/videogames");
       return dispatch({
         type: GET_GAMES,
         payload: json.data,
@@ -32,7 +32,7 @@ export function filterByGenres(payload) {
 export function getGenres() {
   return async function (dispatch) {
     try {
-      var genres = await axios("http://localhost:3002/genres");
+      var genres = await axios("/genres");
       return dispatch({
         type: GET_GENRES,
         payload: genres.data,
@@ -46,7 +46,7 @@ export function getGenres() {
 export const getPlatforms = () => {
   return async function (dispatch) {
     try {
-      var platforms = await axios("http://localhost:3002/platforms");
+      var platforms = await axios("/platforms");
       return dispatch({
         type: GET_PLATFORMS,
         payload: platforms.data,
@@ -60,7 +60,7 @@ export const getPlatforms = () => {
 export function getGamesByNames(name) {
   return async function (dispatch) {
     try {
-      var game = await axios(`http://localhost:3002/videogames?name=${name}`);
+      var game = await axios(`/videogames?name=${name}`);
       return dispatch({
         type: GET_GAMES_BY_NAME,
         payload: game.data,
@@ -103,7 +103,7 @@ export function addNewGame(payload) {
     return async function () {
       try {
       const response = await axios.post(
-        "http://localhost:3002/videogame",
+        "/videogame",
         payload
       );
       return response;
@@ -113,20 +113,10 @@ export function addNewGame(payload) {
   }
 }
 
-export function uploadImage(payload) {
-  return async function () {
-    try {
-      const response = await axios.post
-    } catch (error) {
-      
-    }
-  }
-}
-
 export function getDetail(id){
   return async function(dispatch){
     try {
-      const detail = await axios.get(`http://localhost:3002/videogame/${id}`)
+      const detail = await axios.get(`/videogame/${id}`)
       return dispatch({
         type: GET_DETAIL,
         payload: detail.data
