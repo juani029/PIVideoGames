@@ -3,8 +3,7 @@ import {
   FYLTER_BY_GENRES,
   GET_GENRES,
   FYLTER_BY_CREATED,
-  ALPHABETICAL_ORDER,
-  RATING_ORDER,
+  ORDER_GAMES,
   GET_GAMES_BY_NAME,
   POST_GAME,
   GET_PLATFORMS,
@@ -20,6 +19,7 @@ const initialState = {
 
 function rootReducer(state = initialState, action) {
   switch (action.type) {
+    
     case GET_GAMES:
       return {
         ...state,
@@ -27,11 +27,13 @@ function rootReducer(state = initialState, action) {
         allVideogames: action.payload,
         loading: false,
       };
+
     case GET_GAMES_BY_NAME:
         return {
             ...state,
             videoGames: action.payload
         }
+
     case FYLTER_BY_GENRES:
       const videoGames = [...state.allVideogames]
       const genresFilter = action.payload.includes("All")
@@ -43,6 +45,7 @@ function rootReducer(state = initialState, action) {
         ...state,
         videoGames: genresFilter,
       };
+
     case GET_GENRES: {
       return {
         ...state,
@@ -67,65 +70,63 @@ function rootReducer(state = initialState, action) {
         videoGames: action.payload === "all" ? games : createdFilter,
       };
     }
-    case ALPHABETICAL_ORDER: {
+
+    case ORDER_GAMES: {
       const games1 =  [...state.videoGames]
-      const sortGamesAlphabetic =
-        action.payload === "a-z"
-          ? games1.sort((a, b) => {
-              if (a.name > b.name) {
-                return 1;
-              }
-              if (a.name < b.name) {
-                return -1;
-              }
-              return 0;
-            })
-          : games1.sort((a, b) => {
-              if (a.name > b.name) {
-                return -1;
-              }
-              if (a.name < b.name) {
-                return 1;
-              }
-              return 0;
-            });
+      let sortGames
+      if(action.payload === "a-z") {
+         sortGames = games1.sort((a, b) => {
+          if (a.name > b.name) {
+            return 1;
+          }
+          if (a.name < b.name) {
+            return -1;
+          }
+          return 0;
+        })
+      } else if(action.payload === "z-a"){
+         sortGames = games1.sort((a, b) => {
+          if (a.name > b.name) {
+            return -1;
+          }
+          if (a.name < b.name) {
+            return 1;
+          }
+          return 0;
+        })
+      } else if(action.payload === "top"){
+         sortGames = games1.sort((a, b) => {
+          if (a.rating > b.rating) {
+            return 1;
+          }
+          if (a.rating < b.rating) {
+            return -1;
+          }
+          return 0;
+        })
+      } else if(action.payload === "btt"){
+         sortGames = games1.sort((a, b) => {
+          if (a.rating > b.rating) {
+            return -1;
+          }
+          if (a.rating < b.rating) {
+            return 1;
+          }
+          return 0;
+        });
+      }
         return {
             ...state,
-            videoGames: action.payload === "alpha" ? games1 : sortGamesAlphabetic
+            videoGames: action.payload === "alpha" ? games1 : sortGames
         }
     }
-    case RATING_ORDER: {
-    const games2 =  [...state.videoGames]
-      const sortGamesRating =
-        action.payload === "top"
-          ? games2.sort((a, b) => {
-              if (a.rating > b.rating) {
-                return 1;
-              }
-              if (a.rating < b.rating) {
-                return -1;
-              }
-              return 0;
-            })
-          : games2.sort((a, b) => {
-              if (a.rating > b.rating) {
-                return -1;
-              }
-              if (a.rating < b.rating) {
-                return 1;
-              }
-              return 0;
-            });
-        return {
-            ...state,
-            videoGames: action.payload === "rating" ? games2 : sortGamesRating
-        }
-    }
+
     case POST_GAME:{
         return{
             ...state
         }
     }
+
     case GET_DETAIL:{
       return{
         ...state,

@@ -3,8 +3,7 @@ export const GET_GAMES = "GET_GAMES";
 export const FYLTER_BY_GENRES = "FYLTER_BY_GENRES";
 export const GET_GENRES = "GET_GENRES";
 export const FYLTER_BY_CREATED = "FYLTER_BY_CREATED";
-export const ALPHABETICAL_ORDER = "ALPHABETICAL_ORDER";
-export const RATING_ORDER = "RATING_ORDER";
+export const ORDER_GAMES = "ORDER_GAMES";
 export const GET_GAMES_BY_NAME = "GET_GAMES_BY_NAME";
 export const POST_GAME = "POST_GAME";
 export const GET_PLATFORMS = "GET_PLATFORMS";
@@ -79,19 +78,26 @@ export function filterByCreated(payload) {
   };
 }
 
-export function alphabeticalOrder(payload) {
+export function orderGames(payload) {
   return {
-    type: ALPHABETICAL_ORDER,
+    type: ORDER_GAMES,
     payload,
   };
 }
 
-export function ratingOrder(payload) {
-  return {
-    type: RATING_ORDER,
-    payload,
-  };
-}
+// export function alphabeticalOrder(payload) {
+//   return {
+//     type: ALPHABETICAL_ORDER,
+//     payload,
+//   };
+// }
+
+// export function ratingOrder(payload) {
+//   return {
+//     type: RATING_ORDER,
+//     payload,
+//   };
+// }
 
 export function addNewGame(payload) {
     return async function () {
@@ -104,6 +110,16 @@ export function addNewGame(payload) {
       }catch (error) {
         console.log(error);
       }
+  }
+}
+
+export function uploadImage(payload) {
+  return async function () {
+    try {
+      const response = await axios.post
+    } catch (error) {
+      
+    }
   }
 }
 

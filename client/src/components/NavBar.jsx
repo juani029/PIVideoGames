@@ -19,7 +19,7 @@ export default function NavBar() {
           <img src={home} alt="#" />
         </Link>
         <Link className={style.navlink} to="/created">
-          <p>Crear Videogame</p>
+          <p>Add Videogame</p>
           <img src={videogame} alt="#" />
         </Link>
         <SearchBar />

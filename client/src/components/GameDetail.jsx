@@ -4,6 +4,7 @@ import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getDetail } from "../actions";
 import style from "./styles/GameDetail.module.css";
+import myLoader from "./styles/img/loader.png";
 
 export default function GameDetail() {
   const dispatch = useDispatch();
@@ -12,10 +13,11 @@ export default function GameDetail() {
     dispatch(getDetail(id));
   }, [dispatch, id]);
   const details = useSelector((state) => state.detail);
-
+  // console.log(details);
+  // console.log(id);
   return (
     <div className={style.div}>
-      {details.length > 0 ? (
+      {details.length > 0 && details[0].id == id ? (
         <div className={style.detailDiv}>
           <div className={style.img}>
             <img
@@ -70,8 +72,8 @@ export default function GameDetail() {
           </Link>
         </div>
       ) : (
-        <div>
-          <h1>Game not found</h1>
+        <div className={style.divNotFound}>
+          <img className={style.loader} src={myLoader} alt="#" />
           <Link to="/home">
             <button className={style.btn}>BACK HOME</button>
           </Link>

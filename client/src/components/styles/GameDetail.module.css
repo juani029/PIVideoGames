@@ -40,7 +40,7 @@
     border-radius: 1ex;
     background: none;
     font-family: 'Press Start 2P', cursive;
-    font-size: 10px;
+    font-size: 8px;
     width: 40%;
     height: 350px;
 }
@@ -123,6 +123,19 @@
 .box3 h2{
     font-family: 'Share', cursive;
     font-size: 22px;
+}
+
+.divNotFound{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 800px;
+    width: 100%;
+    justify-content: center;
+}
+
+.loader{
+    height: 250px;
 }
 
 .btn{

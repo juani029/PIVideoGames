@@ -6,12 +6,13 @@ import {
   filterByGenres,
   getGenres,
   filterByCreated,
-  alphabeticalOrder,
-  ratingOrder,
+  orderGames,
 } from "../actions";
 import Card from "./Card";
 import Paginado from "./Paginado";
 import style from "./styles/Home.module.css";
+import myLoader from "./styles/img/loader.png";
+import { Link } from "react-router-dom";
 
 export default function Home() {
   const dispatch = useDispatch();
@@ -59,90 +60,80 @@ export default function Home() {
     setCurrentPage(1);
   };
 
-  const handleSortAlphabetical = (e) => {
+  const handleSort = (e) => {
     e.preventDefault();
-    dispatch(alphabeticalOrder(e.target.value));
-    setCurrentPage(1);
-    // setOrden("")
-  };
-
-  const handleSortRating = (e) => {
-    e.preventDefault();
-    dispatch(ratingOrder(e.target.value));
+    dispatch(orderGames(e.target.value));
     setCurrentPage(1);
   };
 
   return (
     <div>
-      {/* <Link to="/created" className={style.link}>
-        Crear videogame
-      </Link> */}
-      <div className={style.div}>
-        <div>
-          <div className={style.filters}>
-            <div className={style.contFilter}>
-              <p>Order by Genre</p>
-              <select onChange={handleFilterGenre} key="genre">
-                <option value="All">All</option>
-                {allGenres &&
-                  allGenres.map((genre) => (
-                    <option value={genre.name} key={genre.id}>
-                      {genre.name}
-                    </option>
-                  ))}
-              </select>
+      {allVideogames.length > 0 ? (
+        <div className={style.div}>
+          <div>
+            <div className={style.filters}>
+              <div className={style.contFilter}>
+                <p>Filter by Genre</p>
+                <select onChange={handleFilterGenre} key="genre">
+                  <option value="All">All</option>
+                  {allGenres &&
+                    allGenres.map((genre) => (
+                      <option value={genre.name} key={genre.id}>
+                        {genre.name}
+                      </option>
+                    ))}
+                </select>
+              </div>
+              <div className={style.contFilter}>
+                <p>Order by</p>
+                <select onChange={handleSort} key="Alpha">
+                  <option value="alpha">All</option>
+                  <option value="a-z">A-Z</option>
+                  <option value="z-a">Z-A</option>
+                  <option value="top">Top Rating</option>
+                  <option value="btt">Bottom Rating</option>
+                </select>
+              </div>
+              <div className={style.contFilter}>
+                <p>Filter by Created</p>
+                <select onChange={handleFilterCreated} key="Created">
+                  <option value="all">All</option>
+                  <option value="created">Created</option>
+                  <option value="existing">Existing</option>
+                </select>
+              </div>
             </div>
-            <div className={style.contFilter}>
-              <p>Alphabetic Order</p>
-              <select onChange={handleSortAlphabetical} key="Alpha">
-                <option value="alpha">All</option>
-                <option value="a-z">A-Z</option>
-                <option value="z-a">Z-A</option>
-              </select>
+            <div className={style.cardDiv}>
+              {currentVideogames?.map((g) => {
+                return (
+                  <Card
+                    id={g.id}
+                    key={g.id.toString()}
+                    name={g.name.toUpperCase()}
+                    image={g.background_image}
+                    genres={g.genres.map((gen) => {
+                      return `${gen.name}`;
+                    })}
+                  />
+                );
+              })}
             </div>
-            <div className={style.contFilter}>
-              <p>Order by Rating</p>
-              <select onChange={handleSortRating} key="Rating">
-                <option value="rating">All</option>
-                <option value="top">Top</option>
-                <option value="btt">Bottom</option>
-              </select>
-            </div>
-            <div className={style.contFilter}>
-              <p>Order by Created</p>
-              <select onChange={handleFilterCreated} key="Created">
-                <option value="all">All</option>
-                <option value="created">Created</option>
-                <option value="existing">Existing</option>
-              </select>
-            </div>
+            <Paginado
+              videogamesPerPage={videogamesPerPage}
+              allVideogames={allVideogames.length}
+              paginado={paginado}
+              key="Paginado"
+            />
           </div>
-          {/* {currentVideogames.length > 0 ?  */}
-          {/* (<div>  */}
-          <div className={style.cardDiv}>
-            {currentVideogames?.map((g) => {
-              return (
-                <Card
-                  id={g.id}
-                  key={g.id.toString()}
-                  name={g.name.toUpperCase()}
-                  image={g.background_image}
-                  genres={g.genres.map((gen) => {
-                    return `${gen.name}`;
-                  })}
-                />
-              );
-            })}
-          </div>
-          <Paginado
-            videogamesPerPage={videogamesPerPage}
-            allVideogames={allVideogames.length}
-            paginado={paginado}
-            key="Paginado"
-          />
         </div>
-        {/* ): null} */}
-      </div>
+      ) : (
+        <div className={style.divNotFound}>
+          <img className={style.loader} src={myLoader} alt="#" />
+          <Link to="/home">
+            <button className={style.btn}>BACK HOME</button>
+          </Link>
+        </div>
+      )}
     </div>
   );
 }
