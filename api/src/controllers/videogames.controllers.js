@@ -142,14 +142,15 @@ const gameById = async (req,res) => {
 
 const createGame = async (req,res) => {
     try {
-        const { name, description, released, rating, platforms, genres } = req.body;
+        const { name, description, released, rating, platforms, genres, background_image } = req.body;
         console.log(req.files)
         const newVideogame = await Videogame.create({
             name,
             description,
             platforms,
             rating,
-            released
+            released,
+            background_image
         });
         const genreDb = await Genre.findAll({
             where:{ name: genres}

@@ -17,6 +17,7 @@ import { Link } from "react-router-dom";
 export default function Home() {
   const dispatch = useDispatch();
   const allVideogames = useSelector((state) => state.videoGames);
+  const videogames = useSelector((state)=>state.allVideogames)
   const allGenres = useSelector((state) => state.genres);
 
   const [currentPage, setCurrentPage] = useState(1);
@@ -68,7 +69,7 @@ export default function Home() {
 
   return (
     <div>
-      {allVideogames.length > 0 ? (
+      {videogames.length > 0 ? (
         <div className={style.div}>
           <div>
             <div className={style.filters}>
@@ -129,7 +130,7 @@ export default function Home() {
       ) : (
         <div className={style.divNotFound}>
           <img className={style.loader} src={myLoader} alt="#" />
-          <Link to="/home">
+          <Link to="/">
             <button className={style.btn}>BACK HOME</button>
           </Link>
         </div>
