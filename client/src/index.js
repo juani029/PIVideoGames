@@ -1,23 +1,24 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
-import {Provider} from 'react-redux'
-import store from './store/index'
-import dotenv from 'dotenv'
-import axios from 'axios';
+import React from "react";
+import ReactDOM from "react-dom";
+import "./index.css";
+import App from "./App";
+import reportWebVitals from "./reportWebVitals";
+import { Provider } from "react-redux";
+import store from "./store/index";
+import dotenv from "dotenv";
+import axios from "axios";
 
-dotenv.config()
-axios.defaults.baseURL = process.env.REACT_APP_API || "http://localhost:3002"
+dotenv.config();
+axios.defaults.baseURL = process.env.REACT_APP_API || "http://localhost:3002";
 
-ReactDOM.render(// aca insertamos la app al div con id root
+ReactDOM.render(
+  // aca insertamos la app al div con id root
   <Provider store={store}>
     <React.StrictMode>
       <App />
     </React.StrictMode>
   </Provider>,
-  document.getElementById('root')
+  document.getElementById("root")
 );
 
 // If you want to start measuring performance in your app, pass a function

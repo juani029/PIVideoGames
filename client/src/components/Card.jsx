@@ -5,7 +5,7 @@ import style from "./styles/Card.module.css";
 export default function Card({ name, image, genres, id }) {
   return (
     <div className={style.card}>
-      <div className={style.name}>{name}</div>
+      <h1 className={style.name}>{name}</h1>
       <img src={image} alt="img not found" className={style.img} />
       <div className={style.link}>
         <Link to={"videogame/" + id}>

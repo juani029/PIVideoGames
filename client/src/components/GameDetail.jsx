@@ -17,7 +17,7 @@ export default function GameDetail() {
   // console.log(id);
   return (
     <div className={style.div}>
-      {details.length > 0 && details[0].id == id ? (
+      {details.length > 0 && details[0].id === id ? (
         <div className={style.detailDiv}>
           <div className={style.img}>
             <img

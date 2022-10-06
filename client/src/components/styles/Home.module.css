@@ -2,25 +2,30 @@
 @import url('https://fonts.googleapis.com/css2?family=Averia+Gruesa+Libre&display=swap');
 
 .div{
-    display: flex;
+    display: block;
     padding-top: 20px;
     background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),url(https://images5.alphacoders.com/593/thumb-1920-593333.jpg) no-repeat;
     background-attachment: fixed;
     background-size: cover;
     position: relative;
+    max-width: 150rem;
+    margin: 0 auto;
+}
+.contenedor{
+    height: 100%;
 }
 .divNotFound{
     display: flex;
     flex-direction: column;
     align-items: center;
-    height: 800px;
-    width: 100%;
-    justify-content: center;
+    height: 8rem;
+    justify-items: center;
+    margin: 0 auto;
 }
 .loader{
-    height: 250px;
+    height: 15rem;
 }
-.btn{
+.btnHome{
     width: 200px;
     font-size: 16px;
     font-weight: 600;
@@ -41,23 +46,51 @@
 
 .cardDiv{
     display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    grid-template-rows: repeat(3, 1fr);
-    grid-column-gap: 9px;
-    grid-row-gap: 11px;    
+    justify-items: center;
+    margin: 2rem 0;
+    grid-template-columns: repeat(2,1fr);
+    gap: 2rem;
 }
+
+@media (min-width:768px){
+    .cardDiv{
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        margin: 2rem;
+        gap: 2rem;
+    }
+}
+
+/* @media (min-width:1024px){
+    .cardDiv{
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        margin: 2rem auto;
+        gap: 2rem;
+    }
+} */
 
 .filters{
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: space-around;
     border: 2px solid rgba(229, 66, 10, 0.75);
+    border-radius: 1rem;
     background-image: linear-gradient(to top, #30d0d086 0%, #33086767 100%);
     letter-spacing: 0.8px;
-    width: 1800px;
+    width: 90%;
     font-family: 'Press Start 2P', cursive;
-    margin-left: 50px;
+    margin: 0 auto;
 }
+
+@media (min-width:768px){
+    .filters{
+        flex-direction: row;
+        max-width: 150rem;
+    }
+}
+
 
 .contFilter{
     display: flex;
@@ -65,13 +98,26 @@
     margin: 20px;
     border: 2px solid rgba(229, 66, 10, 0.75);
     border-radius: 10px;
-    width: 250px;
+    width: 90%;
     align-items: center;
+}
+
+@media (min-width:768px) {
+    .contFilter{
+        width: 15%;
+        line-height: 1.5;
+    }
+}
+
+@media (min-width:1024px) {
+    .contFilter{
+        width: 20%;
+    }
 }
 
 .contFilter select {
     margin-bottom: 5px;
-    width: 150px;
+    width: 90%;
     color: rgb(0, 0, 0);
     cursor: pointer;
     height: 35px;
@@ -80,7 +126,7 @@
     border-radius: 35px;
     appearance: none;
     font-family: 'Raleway',sans-serif;
-    font-size: 1rem;
+    font-size: 1.5rem;
     background-size: 300% 100%;
     -o-transition: all .4s ease-in-out;
     -webkit-transition: all .4s ease-in-out;
@@ -115,10 +161,15 @@
  
 .contFilter p{
     margin-bottom: 5px;
-    width: 60%;
     color: rgb(255, 136, 0);
+    font-size: 1rem;
 }
 
+@media (min-width: 768px) {
+    .contFilter p{
+        font-size: 1.4rem;
+    }
+}
 
 
 

@@ -17,7 +17,7 @@ import { Link } from "react-router-dom";
 export default function Home() {
   const dispatch = useDispatch();
   const allVideogames = useSelector((state) => state.videoGames);
-  const videogames = useSelector((state)=>state.allVideogames)
+  const videogames = useSelector((state) => state.allVideogames);
   const allGenres = useSelector((state) => state.genres);
 
   const [currentPage, setCurrentPage] = useState(1);
@@ -108,6 +108,7 @@ export default function Home() {
               {currentVideogames?.map((g) => {
                 return (
                   <Card
+                    // className={style.card}
                     id={g.id}
                     key={g.id.toString()}
                     name={g.name.toUpperCase()}
@@ -128,11 +129,13 @@ export default function Home() {
           </div>
         </div>
       ) : (
-        <div className={style.divNotFound}>
-          <img className={style.loader} src={myLoader} alt="#" />
-          <Link to="/">
-            <button className={style.btn}>BACK HOME</button>
-          </Link>
+        <div className={style.contenedor}>
+          <div className={style.divNotFound}>
+            <img className={style.loader} src={myLoader} alt="#" />
+            <Link to="/">
+              <button className={style.btnHome}>BACK HOME</button>
+            </Link>
+          </div>
         </div>
       )}
     </div>
