@@ -71,72 +71,72 @@ export default function Home() {
     <div>
       {videogames.length > 0 ? (
         <div className={style.div}>
-          <div>
-            <div className={style.filters}>
-              <div className={style.contFilter}>
-                <p>Filter by Genre</p>
-                <select onChange={handleFilterGenre} key="genre">
-                  <option value="All">All</option>
-                  {allGenres &&
-                    allGenres.map((genre) => (
-                      <option value={genre.name} key={genre.id}>
-                        {genre.name}
-                      </option>
-                    ))}
-                </select>
-              </div>
-              <div className={style.contFilter}>
-                <p>Order by</p>
-                <select onChange={handleSort} key="Alpha">
-                  <option value="alpha">All</option>
-                  <option value="a-z">A-Z</option>
-                  <option value="z-a">Z-A</option>
-                  <option value="top">Top Rating</option>
-                  <option value="btt">Bottom Rating</option>
-                </select>
-              </div>
-              <div className={style.contFilter}>
-                <p>Filter by Created</p>
-                <select onChange={handleFilterCreated} key="Created">
-                  <option value="all">All</option>
-                  <option value="created">Created</option>
-                  <option value="existing">Existing</option>
-                </select>
-              </div>
+          {/* <div> */}
+          <div className={style.filters}>
+            <div className={style.contFilter}>
+              <p>Filter by Genre</p>
+              <select onChange={handleFilterGenre} key="genre">
+                <option value="All">All</option>
+                {allGenres &&
+                  allGenres.map((genre) => (
+                    <option value={genre.name} key={genre.id}>
+                      {genre.name}
+                    </option>
+                  ))}
+              </select>
             </div>
-            <div className={style.cardDiv}>
-              {currentVideogames?.map((g) => {
-                return (
-                  <Card
-                    // className={style.card}
-                    id={g.id}
-                    key={g.id.toString()}
-                    name={g.name.toUpperCase()}
-                    image={g.background_image}
-                    genres={g.genres.map((gen) => {
-                      return `${gen.name}`;
-                    })}
-                  />
-                );
-              })}
+            <div className={style.contFilter}>
+              <p>Order by</p>
+              <select onChange={handleSort} key="Alpha">
+                <option value="alpha">All</option>
+                <option value="a-z">A-Z</option>
+                <option value="z-a">Z-A</option>
+                <option value="top">Top Rating</option>
+                <option value="btt">Bottom Rating</option>
+              </select>
             </div>
-            <Paginado
-              videogamesPerPage={videogamesPerPage}
-              allVideogames={allVideogames.length}
-              paginado={paginado}
-              key="Paginado"
-            />
+            <div className={style.contFilter}>
+              <p>Filter by Created</p>
+              <select onChange={handleFilterCreated} key="Created">
+                <option value="all">All</option>
+                <option value="created">Created</option>
+                <option value="existing">Existing</option>
+              </select>
+            </div>
           </div>
+          <div className={style.cardDiv}>
+            {currentVideogames?.map((g) => {
+              return (
+                <Card
+                  // className={style.card}
+                  id={g.id}
+                  key={g.id.toString()}
+                  name={g.name.toUpperCase()}
+                  image={g.background_image}
+                  genres={g.genres.map((gen) => {
+                    return `${gen.name}`;
+                  })}
+                />
+              );
+            })}
+          </div>
+          <Paginado
+            videogamesPerPage={videogamesPerPage}
+            allVideogames={allVideogames.length}
+            paginado={paginado}
+            key="Paginado"
+          />
+          {/* </div> */}
         </div>
       ) : (
         <div className={style.contenedor}>
-          <div className={style.divNotFound}>
-            <img className={style.loader} src={myLoader} alt="#" />
-            <Link to="/">
-              <button className={style.btnHome}>BACK HOME</button>
-            </Link>
-          </div>
+          {/* <div className={style.divNotFound}> */}
+          <img className={style.loader} src={myLoader} alt="#" />
+          <Link className={style.link} to="/">
+            <button className={style.btnHome}>BACK HOME</button>
+          </Link>
         </div>
+        // </div>
       )}
     </div>
   );

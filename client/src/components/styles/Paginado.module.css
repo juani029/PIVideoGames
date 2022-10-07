@@ -1,25 +1,22 @@
 .cont{
     display: flex;
-    justify-content: space-evenly;
-    height: 80px;
-    margin: 10px;
+    justify-content: space-around;
+    min-height: 9rem;
+    margin: 0 auto;
     background-image: linear-gradient(to top, #30d0d086 0%, #33086767 100%);
-    width: 90%;
+    width: 95%;
     border: 2px solid rgba(229, 66, 10, 0.75);
     margin-bottom: 20px;
     border-radius: 5px;
-    position: relative;
-    left: 5%;
 }
 .btn{
     width: 50px;
     font-size: 16px;
     font-weight: 600;
-    /* color: linear-gradient(to top, #30d0d086 0%, #33086767 100%); */
     color: #330867a9;
     cursor: pointer;
-    margin: 20px;
-    height: 45px;
+    margin: 2rem;
+    height: 4rem;
     text-align:center;
     border: none;
     background-size: 300% 100%;
