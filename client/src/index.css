@@ -8,6 +8,7 @@ body {
   background-attachment: fixed;
   background-size: cover;
   position: relative;
+  margin: 0;
 } 
 
 code {

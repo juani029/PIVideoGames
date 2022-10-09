@@ -57,6 +57,7 @@ export default function Home() {
 
   const handleFilterCreated = (e) => {
     e.preventDefault();
+    // console.log(allVideogames.length);
     dispatch(filterByCreated(e.target.value));
     setCurrentPage(1);
   };
@@ -120,12 +121,25 @@ export default function Home() {
               );
             })}
           </div>
-          <Paginado
-            videogamesPerPage={videogamesPerPage}
-            allVideogames={allVideogames.length}
-            paginado={paginado}
-            key="Paginado"
-          />
+          {allVideogames.length ? (
+            <Paginado
+              videogamesPerPage={videogamesPerPage}
+              allVideogames={allVideogames.length}
+              paginado={paginado}
+              key="Paginado"
+            />
+          ) : (
+            <div className={style.contenedor}>
+              {/* <div className={style.divNotFound}> */}
+              <h1 className={style.currentGames}>
+                Lo sentimos, no hay juegos para mostrar :(
+              </h1>
+              <img className={style.loader} src={myLoader} alt="#" />
+              <Link className={style.link} to="/">
+                <button className={style.btnHome}>BACK HOME</button>
+              </Link>
+            </div>
+          )}
           {/* </div> */}
         </div>
       ) : (

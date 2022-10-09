@@ -13,11 +13,9 @@ export default function GameDetail() {
     dispatch(getDetail(id));
   }, [dispatch, id]);
   const details = useSelector((state) => state.detail);
-  // console.log(details);
-  // console.log(id);
   return (
     <div className={style.div}>
-      {details.length > 0 && details[0].id === id ? (
+      {details.length && details[0].id == id ? (
         <div className={style.detailDiv}>
           <div className={style.img}>
             <img
@@ -67,14 +65,14 @@ export default function GameDetail() {
             </div>
           </div>
           {/* </div> */}
-          <Link to="/home">
+          <Link className={style.link} to="/home">
             <button className={style.btn}>BACK HOME</button>
           </Link>
         </div>
       ) : (
         <div className={style.divNotFound}>
           <img className={style.loader} src={myLoader} alt="#" />
-          <Link to="/home">
+          <Link className={style.link} to="/home">
             <button className={style.btn}>BACK HOME</button>
           </Link>
         </div>
