@@ -22,9 +22,6 @@ function BurguerButton() {
 export default BurguerButton;
 
 const BurgerContainer = styled.div`
-  .span {
-    background: red;
-  }
   /* nav-icon-1 */
   .nav-icon-1 {
     width: 30px;
@@ -38,7 +35,7 @@ const BurgerContainer = styled.div`
   .nav-icon-1 span {
     width: 5px;
     height: 5px;
-    background-color: #fff;
+    background-color: #ea6f26;
     display: block;
     border-radius: 50%;
     position: absolute;

@@ -27,7 +27,7 @@ export default function NavBar() {
             <img src={videogame} alt="#" />
           </Link>
         </div>
-        <div>
+        <div className="burguer">
           <BurguerButton />
         </div>
       </NavContainer>
@@ -66,5 +66,10 @@ const NavContainer = styled.nav`
   .linkContainer {
     display: flex;
     justify-content: flex-end;
+  }
+  .burguer {
+    @media (min-width: 768px) {
+      display: none;
+    }
   }
 `;
