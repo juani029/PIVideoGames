@@ -8,9 +8,11 @@ export default function LandingPage() {
     <LandingContainer>
       <h1>WELCOME TO WORLD OF GAMES</h1>
       <h2>Created By Juan Ignacio Santillan</h2>
-      <Link to="/home">
-        <button>Start</button>
-      </Link>
+      <div className="button">
+        <Link to="/home">
+          <button>Start</button>
+        </Link>
+      </div>
     </LandingContainer>
   );
 }
@@ -32,16 +34,11 @@ const LandingContainer = styled.div`
   letter-spacing: 2px;
   background-position: center center;
 
-  @media (min-width: 768px) {
-    width: 100%;
-    height: 100%auto;
-  }
-
   h1 {
     font-family: "Press Start 2P", cursive;
     font-weight: bold;
     line-height: 72px;
-    font-size: 5.5rem;
+    font-size: 3.5rem;
     margin: 0 24px;
     background-color: #e4e4e1;
     background-image: linear-gradient(120deg, #f6c525 0%, #fda085 100%);
@@ -65,14 +62,25 @@ const LandingContainer = styled.div`
     -moz-text-fill-color: transparent;
   }
 
+  @media (min-width: 768px) {
+    h1 {
+      font-size: 5.5rem;
+    }
+    h2 {
+      font-size: 3rem;
+    }
+  }
+
   /* BUTTON CSS */
+  .button {
+    width: 80%;
+  }
   button {
-    width: 200px;
+    width: 100%;
     font-size: 16px;
     font-weight: 600;
     color: #330867c5;
     cursor: pointer;
-    margin: 20px;
     height: 55px;
     text-align: center;
     border: none;
@@ -105,5 +113,11 @@ const LandingContainer = styled.div`
   button:active {
     box-shadow: #d6d6e7 0 3px 7px inset;
     transform: translateY(2px);
+  }
+
+  @media (min-width: 768px) {
+    .button {
+      width: 30%;
+    }
   }
 `;
